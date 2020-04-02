@@ -31,17 +31,17 @@ class MyFrame(wx.Frame):
         menuBar = wx.MenuBar()
         menuBar.Append(filemenu, "&File")
         self.SetMenuBar(menuBar)
-
+    #--------------------------------------------------------------functie OnAbout()
     def OnAbout(self, e):
         #Un dialog cu un buton de ok
         dlg=wx.MessageDialog(self, "Un text editor simplu.", "Despre editor", wx.OK)
         dlg.ShowModal()
         dlg.Destroy()
-
+    #------------------------------------------------------------------functie OnExit()
     def OnExit(self, e):
         #Inchiderea ferestrei
         self.Close(True)
-
+    #------------------------------------------------------------------functie OnOpen()
     def OnOpen(self, e):
         """Open a file """
         self.dirname = ''
@@ -54,7 +54,7 @@ class MyFrame(wx.Frame):
             f.close()
 
         dlg.Destroy()
-
+    #-----------------------------------------------------------------functie OnSave()
     def OnSave(self, e):
         with wx.FileDialog(self, "Save file", "*.*", style=wx.FD_SAVE | wx.FD_OVERWRITE_PROMPT) as fileDialog:
             if fileDialog.ShowModal() == wx.ID_CANCEL:
